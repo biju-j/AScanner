@@ -31,7 +31,9 @@ Prerequisite: JAVA_HOME with MAVEN to be setup.
    Can spinoff run tests and release container. 
    BaseTest has relevant steps defined in before() method. 
    > docker-compose up -d
+   
    > Running tests using testng.xml or mvn test runs against grid
+   
    > docker-compose down 
    
 Note: Extent reports with good visualized Reports was also tried.
