@@ -14,7 +14,6 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -46,7 +45,7 @@ public class BaseTest{
 
         }
         else if(browser.equalsIgnoreCase("firefox")) {
-            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "./reports/FFLog.log");
+            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "./logs/FFLog.log");
             WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
             driver = new FirefoxDriver();
         }
@@ -67,13 +66,6 @@ public class BaseTest{
             driver.manage().window().maximize();
         }
     }
-
-    @AfterClass
-    public void tearDown(){
-        //reports.flush();
-        getDriver().close();
-        getDriver().quit();
-   }
 
     public WebDriver getDriver(){
         return this.driver;

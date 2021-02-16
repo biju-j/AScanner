@@ -2,6 +2,7 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.logging.LogEntry;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -64,5 +65,10 @@ public class PriceSuite extends BaseTest {
         //test.pass("Clean, no Errors checked");
     }
 
-
+    @AfterClass
+    public void tearDown(){
+        //reports.flush();
+        getDriver().close();
+        getDriver().quit();
+    }
 }

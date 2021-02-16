@@ -74,5 +74,10 @@ public class HomeSuite extends BaseTest {
         assertTrue(home.invalidPageTitle().contains(pageNotFoundErr));
     }
 
-
+    @AfterClass
+    public void tearDown(){
+        //reports.flush();
+        getDriver().close();
+        getDriver().quit();
+    }
 }

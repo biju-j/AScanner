@@ -1,11 +1,10 @@
 FROM maven:3.6.3-jdk-8
 
-COPY src /Users/bijuj/AllScan/src
+COPY src /AllScan/src
 
-COPY pom.xml /Users/bijuj/AllScan/pom.xml
+COPY pom.xml /AllScan/pom.xml
 
-COPY testng.xml /Users/bijuj/AllScan/
+COPY testng.xml /AllScan/testng.xml
 
-RUN mvn -f /Users/bijuj/AllScan/pom.xml clean
+ENTRYPOINT mvn clean
 
-ENTRYPOINT mvn test
