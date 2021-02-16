@@ -14,7 +14,8 @@ HomePage, Prices and Security scans are done.
 
 Prerequisite: JAVA_HOME with MAVEN to be setup.
 1. git clone AScanner repository.
-2. Check every pom.xml testng.xml Dockerfile and docker-compose.xml is copied
+2. Checkout master branch.
+   Check every pom.xml testng.xml Dockerfile and docker-compose.xml is available
 3. The Tests can be run in
    a. Standalone mode
    b. Grid based
