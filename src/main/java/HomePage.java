@@ -19,7 +19,7 @@ public class HomePage {
     }
 
     public String homePageTitle(){
-        driver.get(baseUrl);
+        driver.navigate().to(baseUrl);
         return driver.getTitle();
     }
 

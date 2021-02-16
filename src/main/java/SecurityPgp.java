@@ -7,18 +7,18 @@ import java.util.stream.Collectors;
 
 public class SecurityPgp {
 
-    private String pgpUrl = "https://www.kraken.com/en-us/features/security/pgp";
+    private WebDriver driver;
 
+    private String pgpUrl = "https://www.kraken.com/en-us/features/security/pgp";
     private By allLinks = By.tagName("a");
     private String href = "href";
-    private WebDriver driver;
 
     public SecurityPgp(WebDriver driver){
         this.driver = driver;
     }
 
     public String pgpPageTitle(){
-        driver.get(pgpUrl);
+        driver.navigate().to(pgpUrl);
         return driver.getTitle();
     }
 

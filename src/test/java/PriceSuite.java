@@ -2,7 +2,7 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.logging.LogEntry;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -23,14 +23,16 @@ public class PriceSuite extends BaseTest {
     private int HTTP_LIMIT = 400;
     private String cryptoPrices = "Cryptocurrency Prices";
 
-    @BeforeMethod
-    public void setup(){
+    @BeforeClass
+    public void setup() throws Exception{
+        //test = setupReporting("PriceSuite");
         driver = getDriver();
         pricesPage = new PricesPage(getDriver());
     }
 
     @Test
     public void checkInit() throws Exception{
+        //test.pass("Init checked");
         assertTrue(pricesPage.pricesPageTitle().contains(cryptoPrices));
     }
 
@@ -40,10 +42,12 @@ public class PriceSuite extends BaseTest {
         for( WebElement link : allLinks ){
             String aHref = link.getAttribute(attribute);
             int status = checkLink(aHref);
-            if( status != HTTP_OK && status < HTTP_LIMIT ){
+            if( status != HTTP_OK && status > HTTP_LIMIT ){
+                //test.fail("Link broken");
                 fail(link.getText()+" link broken, having "+aHref);
             }
         }
+        //test.pass("Links checked");
     }
 
     @Test
@@ -52,14 +56,13 @@ public class PriceSuite extends BaseTest {
         if(foundErrors.size() > 0) {
             for (LogEntry logEntry : foundErrors) {
                 if (logEntry.getLevel().equals(Level.SEVERE)) {
+                    //test.pass("Console Error found");
                     fail("Error found: "+logEntry.getTimestamp() + " ==> " + logEntry.getMessage());
                 }
             }
         }
+        //test.pass("Clean, no Errors checked");
     }
 
-    @Test(enabled = false)
-    public void activePagesCheck() {
 
-    }
 }

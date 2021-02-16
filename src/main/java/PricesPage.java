@@ -18,7 +18,7 @@ public class PricesPage {
     }
 
     public String pricesPageTitle(){
-        driver.get(pricesUrl);
+        driver.navigate().to(pricesUrl);
         return driver.getTitle();
     }
 
