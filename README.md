@@ -28,7 +28,11 @@ Prerequisite: JAVA_HOME with MAVEN to be setup.
    Selenium-Grid based run too can be triggered.
 9. Dockerfile is provided to build the image and run
 10. docker-compose.yml has the Selenium-Grid with two browsers(Chrome and firefox) exposed. 
-   Can spinoff run tests and release container.
+   Can spinoff run tests and release container. 
+   BaseTest has relevant steps defined in before() method. 
+   > docker-compose up -d
+   > Running tests using testng.xml or mvn test runs against grid
+   > docker-compose down 
    
 Note: Extent reports with good visualized Reports was also tried.
 But, free version has some limitations.
